@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import enoca.springData.business.abstracts.ModelService;
 import enoca.springData.business.request.CreateModelRequest;
-import enoca.springData.business.request.UpdateBrandRequest;
 import enoca.springData.business.request.UpdateModelRequest;
+import enoca.springData.business.responses.GetAllBrandsResponse;
 import enoca.springData.business.responses.GetAllModelResponse;
 import enoca.springData.dataAccess.abstracts.ModelRepository;
 import enoca.springData.entities.concretes.Brand;
+import enoca.springData.entities.concretes.Model;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 @Service
@@ -37,6 +37,8 @@ public class ModelManager implements ModelService{
 		}
 		return modelResponse;
 	}
+
+
 
 	@Override
 	public void add(CreateModelRequest createModelRequest) {

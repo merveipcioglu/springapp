@@ -9,6 +9,7 @@ import enoca.springData.business.abstracts.BrandService;
 import enoca.springData.business.request.CreateBrandRequest;
 import enoca.springData.business.request.UpdateBrandRequest;
 import enoca.springData.business.responses.GetAllBrandsResponse;
+import enoca.springData.business.rules.BrandBusinessRules;
 import enoca.springData.dataAccess.abstracts.BrandRepository;
 import enoca.springData.entities.concretes.Brand;
 import lombok.AllArgsConstructor;
@@ -18,6 +19,7 @@ import lombok.AllArgsConstructor;
 public class BrandManager implements BrandService{
 	
 	private BrandRepository brandRepository;
+	private BrandBusinessRules brandBusinessRules;
 	
 //marka ile ilgili işlemleri yapabilmem için bana brandrepository vermelisin
 	
@@ -42,6 +44,8 @@ public class BrandManager implements BrandService{
 
 	@Override
 	public void add(CreateBrandRequest createBrandRequest) {
+		
+		this.brandBusinessRules.checkIfBrandName(createBrandRequest.getName());
 		
 		Brand brand = new Brand();
 		brand.setName(createBrandRequest.getName());		

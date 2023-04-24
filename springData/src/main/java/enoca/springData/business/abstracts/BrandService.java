@@ -1,5 +1,7 @@
 package enoca.springData.business.abstracts;
 
+
+
 import java.util.List;
 
 import enoca.springData.business.request.CreateBrandRequest;

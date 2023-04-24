@@ -27,8 +27,11 @@ public class Brand {
 	private int id;
     @Column(name="name")
 	private String name;
-	
-    @OneToMany(mappedBy = "brand")
+    
+    
+    
+    
+	@OneToMany(mappedBy = "brand")
 	List<Model> models; //tablolar arasındaki bağlandı kuruldu
 	
 	

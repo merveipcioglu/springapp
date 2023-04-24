@@ -11,42 +11,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import enoca.springData.business.abstracts.BrandService;
+import enoca.springData.business.abstracts.ModelService;
 import enoca.springData.business.request.CreateBrandRequest;
+import enoca.springData.business.request.CreateModelRequest;
 import enoca.springData.business.request.UpdateBrandRequest;
+import enoca.springData.business.request.UpdateModelRequest;
 import enoca.springData.business.responses.GetAllBrandsResponse;
+import enoca.springData.business.responses.GetAllModelResponse;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping("/api/brands")
+@RequestMapping("/api/models")
 @AllArgsConstructor
-public class BrandsController {
-    
-	private BrandService brandService;
+public class ModelsControllers {
 	
-	
+	private ModelService modelService;
 	
 	@GetMapping("")
-	public List<GetAllBrandsResponse> getAll(){
+	public List<GetAllModelResponse> getAll(){
 		 
-		return brandService.getAll();
+		return modelService.getAll();
 			
 		
 	}
 	
 	@PostMapping("")
-	public void add(CreateBrandRequest createBrandRequest) {
-		this.brandService.add(createBrandRequest);
+	public void add(CreateModelRequest createModelRequest) {
+		this.modelService.add(createModelRequest);
 		
 	}
 	
 	@PutMapping
-	public void add(UpdateBrandRequest updateBrandRequest) {
-		this.brandService.update(updateBrandRequest);
+	public void add(UpdateModelRequest updateModelRequest) {
+		this.modelService.update(updateModelRequest);
 		
 	}
 	
 	@DeleteMapping("/{id")
 	public void delete(@PathVariable int id) {
-		this.brandService.delete(id);
+		this.modelService.delete(id);
 	}
+
 }
